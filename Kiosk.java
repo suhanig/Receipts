@@ -71,3 +71,5 @@ public class Kiosk {
     
 } // closes main method
 } //closes class kiosk
+
+//writeup posted in the commit
