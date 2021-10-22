@@ -5,6 +5,8 @@ import java.util.Scanner; //allows us to use Kiosk
 
 public class Kiosk {
 	
+	public static void main (String[] args) {
+	
 	public void Kiosk () {
 	
 	Scanner grocery = new Scanner(System.in); //introducing Scanner called grocery
@@ -18,6 +20,11 @@ public class Kiosk {
 	int lemonAmt = 0;
 	double subtotal;
 	double total;
+	double applePrice;
+	double orangePrice;
+	double bananaPrice;
+	double watermelonPrice;
+	double lemonPrice;
     
     System.out.println ("Welcome to Walmart! ");
     System.out.print("We have 5 inventory items. ");
@@ -59,17 +66,30 @@ public class Kiosk {
 			itemAmt = itemAmt - 1; //this is so while loop doesnt happen forever. one item removed each time this loop is completed. 
 	} //closes while loop
 	
+	applePrice = (appleAmt * 1.99);
+	orangePrice = (orangeAmt * 2.49);
+	bananaPrice = (bananaAmt * 2.99);
+	watermelonPrice = (watermelonAmt * 3.49);
+	lemonPrice = (lemonAmt * 3.99);
+	
 	subtotal = ((appleAmt * 1.99) + (orangeAmt * 2.49) + (bananaAmt * 2.99) + (watermelonAmt * 3.49) + (lemonAmt * 3.99)); //calculate subtotal with the number of each item multiplied by its price
 	total = ((0.07 * subtotal) + subtotal); //applies tax
-				
-		
-    
+	
+	
+	Printer p1 = new Printer ();
+	p1.printHeader();
+	p1.print(appleAmt, "Apples", applePrice);
+	p1.print(orangeAmt, "Oranges", orangePrice);			
+	p1.print(bananaAmt, "Bananas", bananaPrice);	
+    p1.print(watermelonAmt, "Watermelons", bananaPrice);
+    p1.print(lemonAmt, "Lemons", lemonPrice);
     
     
     
    
     
 } // closes main method
+} //closes kiosk void
 } //closes class kiosk
 
 //writeup posted in the commit
