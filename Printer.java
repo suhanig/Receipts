@@ -19,3 +19,13 @@
 * Have fun with the assignment!!       *
 ****************************************
 */
+
+Public class Printer {
+  
+  public static void main (String[] args) {
+  
+  public Printer() {
+    
+    Kiosk myKiosk = new Kiosk;
+    System.out.println ("Walmart ");
+    System.out.print ("appleQuantity\t +
