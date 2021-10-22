@@ -1,64 +1,73 @@
-//Suhani Gupta
+//Suhani Gupta 
 //October 20, 2021
 
-import java.util Scanner;
+import java.util.Scanner; //allows us to use Kiosk
 
 public class Kiosk {
-  
-  public static void Kiosk () {
-    
-    Scanner.grocery = new Scanner(System.in); //introducing Scanner called grocery
+	
+	public void Kiosk () {
+	
+	Scanner grocery = new Scanner(System.in); //introducing Scanner called grocery
+	
+	boolean shopAgain = true; //boolean for whether or not the player would like to buy another item
+  //introducing variable
+	int appleAmt = 0;
+	int orangeAmt = 0;
+	int bananaAmt = 0;
+	int watermelonAmt = 0;
+	int lemonAmt = 0;
+	double subtotal;
+	double total;
     
     System.out.println ("Welcome to Walmart! ");
-    System.out.print("We have 5 inventory items. ")
+    System.out.print("We have 5 inventory items. ");
     System.out.print("We have apples, oranges, bananas, watermelons, and lemons. \n");
     System.out.print("1 apple = $1.99, 1 orange = $2.49, 1 banana = $2.99, 1 watermelon = $3.49, 1 lemon = $3.99. You can't purchase more than 9 of each item. ");
-    System.out.print("\nHow many apples would you like to buy? ");
-    String appleAmt = grocery.nextLine(); //scans user apple input
-    int appleQuantity = Integer.parseInt(appleAmt); //converts user's string response to an int
     
-    System.out.print("\nHow many oranges would you like to buy? ");
-    String orangeAmt = grocery.nextLine(); //scans user's orange input
-    int orangeQuantity = Integer.parseInt(orangeAmt); //converts string to an int
     
-    System.out.print("\nHow many bananas would you like to buy? ");
-    String bananaAmt = grocery.nextLine(); //scans user banana input
-    int bananaQuantity = Integer.parseInt(bananaAmt);
+    System.out.print("How many items in total would you like to buy? (the maximum is 45. type out the name only- ex: 'apple') "); //gathering user input
+    String items = grocery.nextLine();
+    int itemAmt = Integer.parseInt(items);
     
-    System.out.print("\nHow many watermelons would you like to buy? ");
-    String watermelonAmt = grocery.nextLine();
-    int watermelonQuantity = Integer.parseInt(watermelonAmt);
+    while (itemAmt > 0) { //allows them to write out the items they want. 
+		System.out.print("Type in the name of the item you would like to buy: "); //THING TO FIX: for example, if buying 2 apples, need to write out apples twice. how do i fix this so they only have to enter apple and 2?
+		String itemName = grocery.nextLine();
+		
+			if (itemName.equals("apple") || itemName.equals("Apple")){
+				appleAmt += 1; //every apple they enter increases amount of apples by one
+			} //closes apple if statement
+			
+			else if (itemName.equals("orange") || itemName.equals("Orange")){
+				orangeAmt += 1; //every orange they enter increases amount of oranges by one
+			} //closes orange if statement
+			
+			else if (itemName.equals("banana") || itemName.equals("Banana")){
+				bananaAmt += 1; //every banana they enter increases amount of bananas by one
+			} //closes banana if statement
+			
+			else if (itemName.equals("watermelon") || itemName.equals("Watermelon")){
+				watermelonAmt += 1; //every watermelon they enter increases amount of watermelons by one
+			} //closes watermelon if statement
+			
+			else if (itemName.equals("lemon") || itemName.equals("Lemon")){
+				lemonAmt += 1; //every lemon they enter increases amount of lemons by one
+			} //closes lemon if statement
+			else {
+				System.out.print ("unavailable");
+			} //closes else statement
+			
+			itemAmt = itemAmt - 1; //this is so while loop doesnt happen forever. one item removed each time this loop is completed. 
+	} //closes while loop
+	
+	subtotal = ((appleAmt * 1.99) + (orangeAmt * 2.49) + (bananaAmt * 2.99) + (watermelonAmt * 3.49) + (lemonAmt * 3.99)); //calculate subtotal with the number of each item multiplied by its price
+	total = ((0.07 * subtotal) + subtotal); //applies tax
+				
+		
     
-    System.out.print("\nHow many lemons would you like to buy? ");
-    String lemonAmt = grocery.nextLine(); 
-    int lemonQuantity = Integer.parseInt(lemonAmt);
-  
-    if (appleQuantity > 9 || orangeQuantity > 9 || bananaQuantity > 9 || watermelonQuantity > 9 || lemonQuantity > 9 ) {
-      System.out.println (" Unable to proceed. You cant have more than 9 of each item");
-    } //closes if statement 
     
-    else {
-      System.out.println ("Let's checkout! ");
-    } //closes else
     
-    double applePrice = 1.99;
-    double appleCost = applePrice * appleQuantity;
     
-    double orangePrice = 2.49;
-    double orangeCost = orangePrice * orangeQuantity;
+   
     
-    double bananaPrice = 2.99;
-    double bananaCost = bananaPrice * bananaQuantity;
-    
-    double watermelonPrice = 3.49;
-    double watermelonCost = watermelonPrice * watermelonQuantity;
-    
-    double lemonPrice = 1.99;
-    double lemonCost = lemonPrice * lemonQuantity;
-    
-    double subtotal = appleCost + orangeCost + bananaCost + watermelonCost + lemonCost;
-    
-    double total = (0.07 * subtotal) + subtotal;
-  
-  } //closes kiosk method
-} //closes kiosk class
+} // closes main method
+} //closes class kiosk
