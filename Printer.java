@@ -23,7 +23,9 @@
 public class Printer {
 	public Printer() {
 	
-	
+	Printer p1 = new Printer ();
+	p1.printHeader();
+	p1.print();
 		
 	Kiosk myKiosk = new Kiosk(); //allows us to call on class Kiosk.java
 	
@@ -32,6 +34,7 @@ public class Printer {
 	int spacesBetweenFirst = 11; //spaces between Quantity and Item
 	int spacesBetweenSecond = 12; //spaces between Item and Price 
 	
+	public void printHeader () {
 	while (frontHeader > 0) { //while loop for beginning spaces
 		System.out.print(" ");
 		frontHeader = frontHeader-1; //makes sure loop is not forever continuous
@@ -43,6 +46,8 @@ public class Printer {
 		System.out.print(" ");
 		backHeader = backHeader -1; //makes sure loop is not forever continuous
 	} //closes behind spaces while loop
+	
+} //closes printHeader void
 	
 	System.out.print("\nQuantity");
 	
@@ -99,4 +104,3 @@ public class Printer {
 
 } //closes printer method
 } //closes printer class
-
